@@ -4,26 +4,34 @@ import Dashboard from './pages/Dashboard'
 import Learn from './pages/Learn'
 import Practice from './pages/Practice'
 import Profile from './pages/Profile'
+import Login from './pages/Login'
+import ProtectedRoute from './components/ProtectedRoute'
 
 function App() {
   return (
     <Router>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Navigate to="/dashboard" replace />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/learn" element={<Learn />} />
-          <Route path="/practice" element={<Practice />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/login" element={<Login />} />
+      <Routes>
 
-<Route path="/dashboard" element={
-  <ProtectedRoute>
-    <Dashboard />
-  </ProtectedRoute>
-} />
-        </Routes>
-      </Layout>
+        {/* Public Route */}
+        <Route path="/login" element={<Login />} />
+
+        {/* Protected Routes */}
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <Layout />
+            </ProtectedRoute>
+          }
+        >
+          <Route index element={<Navigate to="/dashboard" replace />} />
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="learn" element={<Learn />} />
+          <Route path="practice" element={<Practice />} />
+          <Route path="profile" element={<Profile />} />
+        </Route>
+
+      </Routes>
     </Router>
   )
 }

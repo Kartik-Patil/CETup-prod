@@ -1,5 +1,12 @@
 import { useState } from 'react'
 import PageContainer from '../components/Layout/PageContainer'
+import { useAuth } from '../context/AuthContext'
+const { logout } = useAuth()
+
+const confirmLogout = () => {
+  logout()
+  window.location.href = '/login'
+}
 
 // Mock student data
 const studentProfile = {
