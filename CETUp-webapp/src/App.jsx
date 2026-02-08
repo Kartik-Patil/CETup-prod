@@ -6,7 +6,9 @@ import Practice from './pages/Practice'
 import Profile from './pages/Profile'
 import Login from './pages/Login'
 import ProtectedRoute from './components/ProtectedRoute'
+import Admin from './pages/Admin'
 
+<Route path="admin" element={<Admin />} />
 function App() {
   return (
     <Router>
