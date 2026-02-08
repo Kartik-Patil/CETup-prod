@@ -1,4 +1,5 @@
 import PageContainer from '../components/Layout/PageContainer'
+import { useAuth } from '../context/AuthContext'
 import { 
   BarChart, 
   Bar, 
@@ -17,7 +18,7 @@ import {
 
 // Mock data
 const studentData = {
-  name: 'Priya Sharma',
+  name: user?.name,
   class: 'PU-2',
   greeting: 'Welcome back!'
 }
@@ -77,7 +78,7 @@ const offerings = [
 
 function Dashboard() {
   const progressPercentage = Math.round((chaptersProgress.completed / chaptersProgress.total) * 100)
-
+  const { user } = useAuth()
   return (
     <PageContainer>
       {/* Welcome Card */}
