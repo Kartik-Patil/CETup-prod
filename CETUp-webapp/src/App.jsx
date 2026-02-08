@@ -15,6 +15,13 @@ function App() {
           <Route path="/learn" element={<Learn />} />
           <Route path="/practice" element={<Practice />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/login" element={<Login />} />
+
+<Route path="/dashboard" element={
+  <ProtectedRoute>
+    <Dashboard />
+  </ProtectedRoute>
+} />
         </Routes>
       </Layout>
     </Router>

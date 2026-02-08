@@ -1,6 +1,7 @@
 import { useLocation, Link } from 'react-router-dom'
 import { BellIcon } from './Icons'
 import logo from '../../assests_/images/cetup_logo-removebg-preview.png'
+import { useAuth } from '../../context/AuthContext'
 
 const pageTitles = {
   '/dashboard': 'Dashboard',
@@ -19,6 +20,7 @@ const navigation = [
 function Header() {
   const location = useLocation()
   const pageTitle = pageTitles[location.pathname] || 'CETUp'
+  const { user } = useAuth()
 
   return (
     <>
@@ -37,11 +39,11 @@ function Header() {
         {/* User Info */}
         <div className="flex items-center space-x-3">
           <div className="text-right">
-            <p className="text-base font-medium text-text-primary">Student Name</p>
+            <p className="text-base font-medium text-text-primary">{user?.name || 'User'}</p>
             <p className="text-sm text-text-muted">CET Aspirant</p>
           </div>
           <div className="w-12 h-12 rounded-full bg-primary-blue flex items-center justify-center text-white font-medium text-lg">
-            S
+            {user?.name?.[0]?.toUpperCase() || 'U'}
           </div>
         </div>
       </div>
