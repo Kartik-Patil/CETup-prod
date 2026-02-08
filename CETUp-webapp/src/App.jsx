@@ -11,11 +11,10 @@ function App() {
   return (
     <Router>
       <Routes>
-
-        {/* Public Route */}
+        {/* Public */}
         <Route path="/login" element={<Login />} />
 
-        {/* Protected Routes */}
+        {/* Protected */}
         <Route
           path="/"
           element={
@@ -30,7 +29,6 @@ function App() {
           <Route path="practice" element={<Practice />} />
           <Route path="profile" element={<Profile />} />
         </Route>
-
       </Routes>
     </Router>
   )

@@ -18,7 +18,6 @@ import {
 
 // Mock data
 const studentData = {
-  name: user?.name,
   class: 'PU-2',
   greeting: 'Welcome back!'
 }
@@ -86,7 +85,7 @@ function Dashboard() {
         <div className="flex items-center justify-between">
           <div>
             <h2 className="text-3xl font-bold mb-2">{studentData.greeting}</h2>
-            <p className="text-xl opacity-90">{studentData.name}</p>
+            <p className="text-xl opacity-90">{user?.name}</p>
             <p className="text-lg opacity-80 mt-1">Class: {studentData.class}</p>
           </div>
           <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center text-4xl">
