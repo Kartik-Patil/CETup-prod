@@ -7,8 +7,8 @@ import Profile from './pages/Profile'
 import Login from './pages/Login'
 import ProtectedRoute from './components/ProtectedRoute'
 import Admin from './pages/Admin'
+import AdminRoute from './components/AdminRoute'
 
-<Route path="admin" element={<Admin />} />
 function App() {
   return (
     <Router>
@@ -30,6 +30,15 @@ function App() {
           <Route path="learn" element={<Learn />} />
           <Route path="practice" element={<Practice />} />
           <Route path="profile" element={<Profile />} />
+{/* ADMIN ONLY */}
+          <Route
+            path="admin"
+            element={
+              <AdminRoute>
+                <Admin />
+              </AdminRoute>
+            }
+          />
         </Route>
       </Routes>
     </Router>
